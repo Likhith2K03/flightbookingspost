@@ -1,0 +1,52 @@
+<mvc:View
+  controllerName="app.flightbookings.controller.CreateView"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns:f="sap.ui.layout.form"
+  xmlns="sap.m">
+ 
+  <Page id="CreatePage" title="{i18n>titleCreate}" showNavButton="true" navButtonPress="onBookingsPage">
+    <content>
+      <f:SimpleForm id="idCreateForm" editable="true" layout="ResponsiveGridLayout">
+ 
+        <Label text="{i18n>Carrid}" />
+        <Input id="idCarrId" maxLength="3" placeholder="e.g. LH" />
+ 
+        <Label text="{i18n>Connid}" />
+        <Input id="idConnId" maxLength="4" placeholder="e.g. 0400" />
+ 
+        <Label text="{i18n>Bookid}" />
+        <Input id="idBookId" maxLength="8" placeholder="e.g. 00001234" />
+ 
+        <Label text="{i18n>Fldate}" />
+        <DatePicker id="idFldate" width="100%" placeholder="Select flight date" />
+ 
+        <Label text="{i18n>Customid}" />
+        <Input id="idCustomId" maxLength="8" placeholder="e.g. 00005678" />
+ 
+        <Label text="{i18n>Class}" />
+        <Select id="idClass">
+          <core:Item key="C" text="Business Class" />
+          <core:Item key="Y" text="Economy Class" />
+          <core:Item key="F" text="First Class" />
+        </Select>
+ 
+        <Label text="{i18n>Loccuram}" />
+        <Input id="idLoccuram" type="Number" maxLength="15" placeholder="e.g. 1500" />
+ 
+        <Label text="{i18n>OrderDate}" />
+        <DatePicker id="idOrderDate" width="100%" placeholder="Select booking date" />
+ 
+        <Label text="{i18n>Cancelled}" />
+        <CheckBox id="idCancelled" />
+ 
+        <Toolbar>
+          <Button text="Create" type="Emphasized" press="onCreate" />
+          <ToolbarSpacer />
+        </Toolbar>
+ 
+      </f:SimpleForm>
+    </content>
+  </Page>
+</mvc:View>
+ 

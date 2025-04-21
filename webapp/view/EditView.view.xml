@@ -1,0 +1,35 @@
+<mvc:View controllerName="app.flightbookings.controller.EditView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="EditPage" title="{i18n>titleEdit}" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <f:SimpleForm id="idEditForm" editable="true" layout="ResponsiveGridLayout">
+                <Label text="{i18n>Customid}" />
+                <Input id="CustomId" value="{FlightModel>Customid}" maxLength="8" placeholder="e.g. 00005678" />
+
+                <Label text="{i18n>Class}" />
+                <Select id="Class" selectedKey="{FlightModel>Class}">
+                    <core:Item key="C" text="Business Class" />
+                    <core:Item key="Y" text="Economy Class" />
+                    <core:Item key="F" text="First Class" />
+                </Select>
+
+                <Label text="{i18n>Loccuram}" />
+                <Input id="Loccuram" value="{FlightModel>Loccuram}" type="Number" maxLength="15" placeholder="e.g. 1500" />
+
+                <Label text="{i18n>OrderDate}" />
+                <DatePicker id="OrderDate" value="{FlightModel>OrderDate}" width="100%" placeholder="Select booking date" />
+
+                <Label text="{i18n>Cancelled}" />
+                <CheckBox id="Cancelled" selected="{FlightModel>Cancelled}" />
+
+                <Toolbar>
+                    <Button text="Save" type="Emphasized" press="onSave" />
+                    <ToolbarSpacer />
+                </Toolbar>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,159 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "app.flightbookings",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.3",
+      "toolsId": "9a6ea152-56cb-4334-86a6-83effc803d0a"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/Z9190_FLBOOK_SPRINT_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "bookflight-create": {
+          "semanticObject": "bookflight",
+          "action": "create",
+          "title": "{{bookflight-create.flpTitle}}",
+          "subTitle": "{{bookflight-create.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "app.flightbookings.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "FlightModel" : {
+        "type": "sap.ui.model.json.JSONModel"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "app.flightbookings.view",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "RouteBookView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetBookView"
+          ]
+        },
+        {
+          "name": "RouteCreateView",
+          "pattern": "createBooking",
+          "target": [
+            "TargetCreateView"
+          ]
+        },
+        {
+          "name": "RouteEditView",
+          "pattern": "editBooking",
+          "target": [
+            "TargetEditView"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetBookView": {
+          "id": "BookView",
+          "name": "BookView",
+          "viewPath": "app.flightbookings.view"
+        },
+        "TargetCreateView": {
+          "id": "CreatePage",
+          "name": "CreateView",
+          "viewPath": "app.flightbookings.view"
+        },
+        "TargetEditView": {
+          "id": "EditPage",
+          "name": "EditView",
+          "viewPath": "app.flightbookings.view"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "app.flightbookings.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "appflightbookings"
+  }
+}

@@ -1,0 +1,61 @@
+<mvc:View controllerName="app.flightbookings.controller.BookView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Table id="flightTable" items="{path: '/flightbookingSet', sorter: {path: 'Bookid', descending: true}}">
+            <columns>
+                <Column>
+                    <Text text="{i18n>Carrid}"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Connid}"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Bookid}"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Fldate}"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Customid}"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Class}"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Loccuram}"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>OrderDate}"></Text>
+                </Column>
+                <Column>
+                    <Text text="{i18n>Cancelled}"></Text>
+                </Column>
+                <Column></Column>
+            </columns>
+            <ColumnListItem>
+                <cells>
+                    <Text text="{Carrid}"></Text>
+                    <Text text="{Connid}"></Text>
+                    <Text text="{Bookid}"></Text>
+                    <Text text="{path: 'Fldate', formatter: '.formatDate'}"></Text>
+                    <Text text="{Customid}"></Text>
+                    <Text text="{Class}"></Text>
+                    <Text text="{Loccuram}"></Text>
+                    <Text text="{path: 'OrderDate', formatter: '.formatDate'}"></Text>
+                    <Text text="{Cancelled}"></Text>
+                    <HBox >
+                        <Button class="sapUiTinyMarginEnd" icon="sap-icon://edit" press="onEdit"></Button>
+                        <Button icon="sap-icon://delete" press="onDelete"></Button>
+                    </HBox>
+                </cells>
+            </ColumnListItem>
+        </Table>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button text="Create" press="onCreatePage"></Button>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
