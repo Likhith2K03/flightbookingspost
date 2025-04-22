@@ -10,16 +10,16 @@
       <f:SimpleForm id="idCreateForm" editable="true" layout="ResponsiveGridLayout">
  
         <Label text="{i18n>Carrid}" />
-        <Input id="idCarrId" maxLength="3" placeholder="e.g. LH" />
+        <Input id="idCarrId" maxLength="3" placeholder="e.g. LH" required="true"/>
  
         <Label text="{i18n>Connid}" />
-        <Input id="idConnId" maxLength="4" placeholder="e.g. 0400" />
+        <Input id="idConnId" maxLength="4" placeholder="e.g. 0400" required="true"/>
  
         <Label text="{i18n>Bookid}" />
-        <Input id="idBookId" maxLength="8" placeholder="e.g. 00001234" />
+        <Input id="idBookId" maxLength="8" placeholder="e.g. 00001234" required="true"/>
  
         <Label text="{i18n>Fldate}" />
-        <DatePicker id="idFldate" width="100%" placeholder="Select flight date" />
+        <DatePicker id="idFldate" width="100%" placeholder="Select flight date" required="true"/>
  
         <Label text="{i18n>Customid}" />
         <Input id="idCustomId" maxLength="8" placeholder="e.g. 00005678" />

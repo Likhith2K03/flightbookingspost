@@ -121,7 +121,7 @@
         },
         {
           "name": "RouteEditView",
-          "pattern": "editBooking",
+          "pattern": "editBooking/{path}",
           "target": [
             "TargetEditView"
           ]

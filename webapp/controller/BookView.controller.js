@@ -25,18 +25,14 @@ sap.ui.define([
         },
 
         onEdit(oEvent) {
-            let oContext = oEvent.getSource().getBindingContext();
-            if (oContext) {
-                let oData = oContext.getObject();
+            let oContextPath = oEvent.getSource().getBindingContext().sPath;
+            if (oContextPath) {
                 // Navigate to edit page or open a dialog for editing
                 this.getRouter().navTo("RouteEditView", {
-                    Carrid: oData.Carrid,
-                    Connid: oData.Connid,
-                    Bookid: oData.Bookid,
-                    Fldate: oData.Fldate
+                    path: encodeURIComponent(oContextPath)
                 });
             } else {
-                MessageBox.error("No binding context found.");
+                MessageBox.error("No binding context path found.");
             }
         },
 
