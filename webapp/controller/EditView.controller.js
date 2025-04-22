@@ -13,12 +13,10 @@ sap.ui.define([
             this.getRouter().navTo("RouteBookView");
         },
         _onObjectMatched: function(oEvent) {
-            const sPath = decodeURIComponent(oEvent.getParameter("arguments").path);
-            const oForm = this.byId("idEditForm");
-            oForm.bindElement({
-                path: sPath,
-                model: "FlightModel"
-            });
+            let index = oEvent.getParameter("arguments").path;
+            let sPath = "FlightModel>/" + index;
+            let oView = this.getView();
+            oView.bindElement(sPath);
         },
         onUpdate: function() {
             // Prerequisites: Build Payload Object

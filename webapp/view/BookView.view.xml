@@ -2,7 +2,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <Table id="flightTable" items="{path: '/flightbookingSet', sorter: {path: 'Bookid', descending: true}}">
+        <Table id="flightTable" items="{path: '/flightbookingSet', sorter: {path: 'Bookid', descending: true}}" mode="SingleSelectMaster" selectionChange="onEdit">
             <columns>
                 <Column>
                     <Text text="{i18n>Carrid}"></Text>
@@ -44,10 +44,7 @@
                     <Text text="{Loccuram}"></Text>
                     <Text text="{path: 'OrderDate', formatter: '.formatDate'}"></Text>
                     <Text text="{Cancelled}"></Text>
-                    <HBox >
-                        <Button class="sapUiTinyMarginEnd" icon="sap-icon://edit" press="onEdit"></Button>
-                        <Button icon="sap-icon://delete" press="onDelete"></Button>
-                    </HBox>
+                    <Button icon="sap-icon://delete" press="onDelete"></Button>
                 </cells>
             </ColumnListItem>
         </Table>

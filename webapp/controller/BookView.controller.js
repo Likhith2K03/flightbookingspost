@@ -25,15 +25,14 @@ sap.ui.define([
         },
 
         onEdit(oEvent) {
-            let oContextPath = oEvent.getSource().getBindingContext().sPath;
-            if (oContextPath) {
-                // Navigate to edit page or open a dialog for editing
-                this.getRouter().navTo("RouteEditView", {
-                    path: encodeURIComponent(oContextPath)
-                });
-            } else {
-                MessageBox.error("No binding context path found.");
-            }
+            let oItem    = oEvent.getParameter("listItem");
+            let oContext = oItem.getBindingContextPath();
+            let aItems   = oContext.split("/");
+            let index    = aItems[aItems.length-1];
+            let oRouter  = this.getRouter();
+            oRouter.navTo("RouteEditView",{
+                path: index
+            });
         },
 
         onDelete(oEvent) {
